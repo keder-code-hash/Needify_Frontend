@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleRight } from '@fortawesome/fontawesome-free-solid';
 
 class MyFooter extends Component{
     render(){
@@ -23,7 +25,7 @@ class MyFooter extends Component{
                     <div class="footer-content">
                         <h2>Quick Links</h2>
                         <ol>
-                        <li><a href="#"><i class="fal fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="#"><FontAwesomeIcon icon={faArrowAltCircleRight} size='1px' style={{color : "fd580b"}}/>Home</a></li>
                         <li><a href="#"><i class="fal fa-angle-double-right"></i>About Us</a></li>
                         <li><a href="#"><i class="fal fa-angle-double-right"></i>Services</a></li>
                         <li><a href="#"><i class="fal fa-angle-double-right"></i>Blog</a></li>
