@@ -1,7 +1,5 @@
-// keder
-// import 'font-awesome/css/font-awesome.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare, faCoffee,faBook, faGraduationCap, faChild, faDonate, faHandHoldingHeart, faHome, faHandHolding, faHeartbeat } from '@fortawesome/fontawesome-free-solid';
+import { faBook, faGraduationCap, faChild, faDonate, faHandHoldingHeart, faHome, faHandHolding, faHeartbeat } from '@fortawesome/fontawesome-free-solid';
 
 function OurServices(){
     return(
@@ -147,7 +145,6 @@ function OurServices(){
             </div>
             </div>
         </section>
-
     );
 }
 

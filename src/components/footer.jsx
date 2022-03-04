@@ -70,4 +70,4 @@ class MyFooter extends Component{
     }
 }
 
-export default MyFooter
+export default MyFooter;
