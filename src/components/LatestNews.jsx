@@ -1,4 +1,3 @@
-// rajib
 import { Component } from "react";
 class MyLatestNews extends Component {
     render() {
@@ -81,4 +80,4 @@ class MyLatestNews extends Component {
         );
     }
 }
-export default MyLatestNews
+export default MyLatestNews;

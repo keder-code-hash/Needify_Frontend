@@ -9,20 +9,25 @@ import RecentDatas from './components/RecentData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyLandingPage from './components/LandingHomePage';
 import MyTeam from './components/MeetOurTeam';
+import Message from './components/ngodashboard'; 
+import MyLoginPage from './components/LogIn';
+import MyRegister from './components/Register';
+import ContactForm from './components/ContactPage';
 import MyLatestNews from './components/LatestNews';
-import Message from './components/ngodashboard';
-
-
 function App() {
   return (
     <div className="App">
       <MyNavbar/>
 
-        <Routes>
-          <Route exact path="/" element={[<MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>]} />
-          <Route path="recent" element={<RecentDatas />} />
-          <Route path="ngodash" element={<Message />} />
-        </Routes> 
+        <switch>
+          <Routes>
+            <Route exact path="/" element={[<MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>,<MyLatestNews/>, <ContactForm/>]} />
+            <Route path="recent" element={<RecentDatas />} />
+            <Route path="ngodash" element={<Message />} />
+            <Route path="login" element={<MyLoginPage />} />
+            <Route path="register" element={<MyRegister/>} />
+          </Routes> 
+        </switch>
 
       <MyFooter/>
     </div>
