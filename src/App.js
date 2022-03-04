@@ -13,7 +13,7 @@ import Message from './components/ngodashboard';
 import MyLoginPage from './components/LogIn';
 import MyRegister from './components/Register';
 import ContactForm from './components/ContactPage';
-
+import MyLatestNews from './components/LatestNews';
 function App() {
   return (
     <div className="App">
@@ -21,7 +21,7 @@ function App() {
 
         <switch>
           <Routes>
-            <Route exact path="/" element={[<MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>,<ContactForm/>]} />
+            <Route exact path="/" element={[<MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>,<MyLatestNews/>, <ContactForm/>]} />
             <Route path="recent" element={<RecentDatas />} />
             <Route path="ngodash" element={<Message />} />
             <Route path="login" element={<MyLoginPage />} />
