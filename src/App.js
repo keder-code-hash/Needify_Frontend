@@ -7,6 +7,7 @@ import RecentDatas from './components/RecentData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyLandingPage from './components/LandingHomePage';
 import MyTeam from './components/MeetOurTeam';
+import MyLatestNews from './components/LatestNews';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <RecentDatas/>
       <OurServices/>
       <MyTeam/>
+      <MyLatestNews/>
       <MyFooter/>
     </div>
   );
