@@ -6,6 +6,7 @@ import OurServices from './components/OurServices';
 import RecentDatas from './components/RecentData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyLandingPage from './components/LandingHomePage';
+import MyTeam from './components/MeetOurTeam';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <MyLandingPage/>
       <RecentDatas/>
       <OurServices/>
+      <MyTeam/>
       <MyFooter/>
     </div>
   );
