@@ -98,4 +98,4 @@ class MyTeam extends Component {
         );
     }
 }
-export default MyTeam
+export default MyTeam;

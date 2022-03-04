@@ -1,4 +1,3 @@
-// keder 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignal,faThumbsUp } from '@fortawesome/fontawesome-free-solid';
 
