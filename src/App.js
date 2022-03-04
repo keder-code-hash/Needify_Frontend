@@ -1,14 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import MyNavbar from './components/navbar';
-import MyFooter from './components/footer';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LoginPage from './LogIn';
 
 function App() {
   return (
-    <div className="App">
-      <MyNavbar/>
-      <MyFooter/>
+    <div>
+      <LoginPage/>
     </div>
   );
 }
