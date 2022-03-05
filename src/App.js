@@ -14,6 +14,10 @@ import MyLoginPage from './components/LogIn';
 import MyRegister from './components/Register';
 import ContactForm from './components/ContactPage';
 import MyLatestNews from './components/LatestNews';
+import Layout from './components/ngodashboard/DashBoardLayout';
+import Sidebar from './components/ngodashboard/Sidebar';
+
+
 function App() {
   return (
     <div className="App">
@@ -23,9 +27,11 @@ function App() {
           <Routes>
             <Route exact path="/" element={[<MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>,<MyLatestNews/>, <ContactForm/>]} />
             <Route path="recent" element={<RecentDatas />} />
-            <Route path="ngodash" element={<Message />} />
             <Route path="login" element={<MyLoginPage />} />
             <Route path="register" element={<MyRegister/>} />
+
+            <Route path="ngodash" element={<Layout />} />
+
           </Routes> 
         </switch>
 
