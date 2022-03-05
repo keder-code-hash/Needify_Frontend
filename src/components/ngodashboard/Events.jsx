@@ -7,7 +7,12 @@ import { CardGroup,Button,Card, CardImg,CardSubtitle,CardTitle,CardBody,CardText
 
 function MyEvents() {
     return(
-<CardGroup>
+
+
+
+
+      
+{/* <CardGroup>
   <Card>
     <CardImg
       alt="Card image cap"
@@ -83,7 +88,7 @@ function MyEvents() {
       </Button>
     </CardBody>
   </Card>
-</CardGroup>
+</CardGroup> */}
     );
 }
 export default MyEvents
