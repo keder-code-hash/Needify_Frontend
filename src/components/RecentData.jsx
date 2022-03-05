@@ -53,7 +53,7 @@ function RecentDetailsCard(props){
                 </div>
             </div>
         </div>
-    ); 
+    );  
     return(
         <div className="row">
             {cardDiv}
