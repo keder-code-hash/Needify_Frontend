@@ -1,7 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import {Col,Container,Row} from 'react-bootstrap';
-import {SignupForm } from "./Details";
+import {SignupForm } from "./DetailsUpdate";
+import TableFormatData from "./Details";
 
 class Layout extends React.Component{
     render(){
@@ -10,9 +11,9 @@ class Layout extends React.Component{
                 <Col md="auto" sm="auto">
                     <Sidebar />
                 </Col>
-                <Col md="auto" sm="auto">
-                    <Container>
-                        <SignupForm /> 
+                <Col>
+                    <Container> 
+                        <TableFormatData />
                     </Container>
                 </Col>
             </Row>
