@@ -14,6 +14,7 @@ import MyLoginPage from './components/LogIn';
 import MyRegister from './components/Register';
 import ContactForm from './components/ContactPage';
 import MyLatestNews from './components/LatestNews';
+import MyEvents from './components/ngodashboard/Events';
 function App() {
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
             <Route path="ngodash" element={<Message />} />
             <Route path="login" element={<MyLoginPage />} />
             <Route path="register" element={<MyRegister/>} />
+            <Route path ="events" element ={<MyEvents/>}/>
           </Routes> 
         </switch>
 
