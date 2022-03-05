@@ -1,16 +1,21 @@
 import { Component } from "react";
-import { Navbar,Nav,Container,Offcanvas,NavDropdown } from "react-bootstrap";
+import { Navbar,Nav,Container,Offcanvas,NavDropdown,Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 
 function NotloggedIn(props) {
     return(
-        <Nav>
-            <Nav.Link eventKey={2} href="#memes">
-                LogIn
+        <Nav> 
+            <Nav.Link >
+                <Link eventKey={2} to={"/login"}>
+                    <Button variant="success">LogIn</Button>{' '}
+                </Link> 
             </Nav.Link>
-            <Nav.Link eventKey={3} href="#memes">
-                Register
+            <Nav.Link>
+                <Link eventKey={3} to={"/register"}>
+                    <Button variant="success">Register</Button>{' '}
+                </Link>
             </Nav.Link>
         </Nav>
     );
@@ -47,12 +52,17 @@ class MyNavbar extends Component{
         return(
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Needify</Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to={"/"}>
+                            Needify
+                        </Link>
+                    </Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#features">About Us</Nav.Link>
-                            <Nav.Link href="#pricing">Contact</Nav.Link>
+                            <Nav.Link href="#contact">Contact</Nav.Link>
                         </Nav> 
 
                         {this.state.isLogin ? <LoggedIn /> : <NotloggedIn /> }

@@ -72,7 +72,7 @@ class MyLandingPage extends Component {
                                         distinctio suscipit sunt ducimus illo veritatis corporis quas! Ipsa obcaecati beatae, aut saepe aliquam
                                         corrupti fugit. Cupiditate.</p>
                                     <ol>
-                                        <li><a href="form.html">Join With Us</a></li>
+                                        <li><a href="#">Join With Us</a></li>
                                         <li><a href="#">Donet Now</a></li>
                                     </ol>
                                 </div>
