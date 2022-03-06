@@ -1,8 +1,9 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import {Col,Container,Row} from 'react-bootstrap';
-import {SignupForm } from "./DetailsUpdate";
-import TableFormatData from "./Details";
+import {Col,Container,Row} from 'react-bootstrap'; 
+import DetailsData from "./Details";
+import { Routes, Route } from "react-router-dom";
+import EventsDetails from "./Events"
 
 class Layout extends React.Component{
     render(){
@@ -12,8 +13,19 @@ class Layout extends React.Component{
                     <Sidebar />
                 </Col>
                 <Col>
-                    <Container> 
-                        <TableFormatData />
+                    <Container>  
+                    
+                        <switch>
+                            <Routes>
+                                <Route exact path="/ngodash">
+                                    <DetailsData />    
+                                </Route>
+                                <Route path="/ngodash/events">
+                                    <EventsDetails/>
+                                </Route> 
+                            </Routes>
+                        </switch>
+
                     </Container>
                 </Col>
             </Row>

@@ -17,7 +17,8 @@ import MyLatestNews from './components/LatestNews';
 import Layout from './components/ngodashboard/DashBoardLayout';
 import Sidebar from './components/ngodashboard/Sidebar';
 
-
+import DetailsData from './components/ngodashboard/Details';
+import EventsDetails from './components/ngodashboard/Events';
 function App() {
   return (
     <div className="App">
@@ -31,7 +32,6 @@ function App() {
             <Route path="register" element={<MyRegister/>} />
 
             <Route path="ngodash" element={<Layout />} />
-
           </Routes> 
         </switch>
 
