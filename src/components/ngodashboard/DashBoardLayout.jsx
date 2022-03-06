@@ -1,37 +1,30 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import {Col,Container,Row} from 'react-bootstrap'; 
-import DetailsData from "./Details";
-import { Routes, Route } from "react-router-dom";
-import EventsDetails from "./Events"
+import TableFormatData from "./Details"; 
+import { BrowserRouter as Router,Route,Switch,Link } from "react-router-dom";
+import { SignupForm } from "./DetailsUpdate";
+import PrevHistory from "./PrevHistory";
 
-class Layout extends React.Component{
-    render(){
-        return(
+function Layout(){  
+        return( 
             <Row>
                 <Col md="auto" sm="auto">
                     <Sidebar />
                 </Col>
                 <Col>
-                    <Container>  
-                    
-                        <switch>
-                            <Routes>
-                                <Route exact path="/ngodash">
-                                    <DetailsData />    
-                                </Route>
-                                <Route path="/ngodash/events">
-                                    <EventsDetails/>
-                                </Route> 
-                            </Routes>
-                        </switch>
-
+                    <Container> 
+ 
+                        <Switch>
+                            <Route path="/ngodash/details"><TableFormatData/> </Route>
+                            <Route path="/ngodash/profileupdate"><SignupForm/> </Route> 
+                            <Route path="/ngodash/history"><PrevHistory/></Route>
+                        </Switch> 
+                        
                     </Container>
                 </Col>
-            </Row>
-           
-        );
-    }
+            </Row>  
+        ); 
 }
 
 export default Layout;

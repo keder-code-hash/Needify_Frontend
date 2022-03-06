@@ -1,5 +1,6 @@
 import React from "react";
 import { Form,Button,Table,Alert } from 'react-bootstrap';
+
 const data={ 
     id : "XXXXX/XXXX/XXXXX",
     contact : {
@@ -98,10 +99,11 @@ const TableMemberElement=()=>{
     )
 
 }
-const DetailsData=()=>{
+
+function TableFormatData(){
     return(
         <React.Fragment>
-            <div className='container-fluid' > 
+            <div className='container-fluid'> 
                 <div className="row pt-5" >
                     <div className="col-10"> 
                             <Table striped bordered hover size="sm">
@@ -374,4 +376,4 @@ const DetailsData=()=>{
     );
 }
 
-export default DetailsData
+export default TableFormatData
