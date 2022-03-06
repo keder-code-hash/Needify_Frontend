@@ -114,7 +114,7 @@ const SignupForm = () => {
                         <td>First Name</td>
                         <td>
                             <MyTextInput 
-                                name="firstName"
+                                name="Registered With"
                                 type="text"
                                 placeholder="Jane"
                             />
@@ -126,7 +126,7 @@ const SignupForm = () => {
                         <td>Last Name</td>
                         <td>
                             <MyTextInput 
-                                name="lastName"
+                                name="Type Of NGO"
                                 type="text"
                                 placeholder="Doe"
                             />   
