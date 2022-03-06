@@ -1,24 +1,29 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import {Col,Container,Row} from 'react-bootstrap';
-import {SignupForm } from "./Details";
+import {Col,Container,Row} from 'react-bootstrap'; 
+import TableFormatData from "./Details"; 
+import { BrowserRouter as Router,Route,Switch,Link } from "react-router-dom";
+import { SignupForm } from "./DetailsUpdate";
 
-class Layout extends React.Component{
-    render(){
-        return(
+
+function Layout(){  
+        return( 
             <Row>
                 <Col md="auto" sm="auto">
                     <Sidebar />
                 </Col>
-                <Col md="auto" sm="auto">
-                    <Container>
-                        <SignupForm /> 
+                <Col>
+                    <Container> 
+ 
+                        <Switch>
+                            <Route path="/ngodash/details"><TableFormatData/> </Route>
+                            <Route path="/ngodash/profileupdate"><SignupForm/> </Route> 
+                        </Switch> 
+                        
                     </Container>
                 </Col>
-            </Row>
-           
-        );
-    }
+            </Row>  
+        ); 
 }
 
 export default Layout;

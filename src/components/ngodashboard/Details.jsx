@@ -1,8 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Formik, useField } from 'formik';
-import * as Yup from 'yup';
-import { Form,Button,Table } from 'react-bootstrap';
+import React from "react";
+import { Form,Button,Table,Alert } from 'react-bootstrap';
 const data={ 
     id : "XXXXX/XXXX/XXXXX",
     contact : {
@@ -18,17 +15,17 @@ const data={
         {
             membername:"Ram Singh",
             position:"President",
-            AadharDets:"XXXX XXXX XXXX XXXX"
+            AadharId:"XXXX XXXX XXXX XXXX"
         },
         {
             membername:"Ram Singh",
             position:"President",
-            AadharDets:"XXXX XXXX XXXX XXXX"
+            AadharId:"XXXX XXXX XXXX XXXX"
         },
         {
             membername:"Ram Singh",
             position:"President",
-            AadharDets:"XXXX XXXX XXXX XXXX"
+            AadharId:"XXXX XXXX XXXX XXXX"
         }
     ],
     registrationdetails: {
@@ -51,147 +48,330 @@ const data={
     }]
 }
 
-const MyTextInput = ({ label, ...props }) => {
-    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-    // which we can spread on <input>. We can use field meta to show an error
-    // message if the field is invalid and it has been touched (i.e. visited)
-    const [field, meta] = useField(props);
+const TableAchieveElement=()=>{
+    const tableElem=data.achievements.map((d)=>  
+        <tr> 
+            <td>
+                <h5>
+                    {d['name']}
+                </h5>  
+            </td> 
+            <td>
+                <h5>
+                    {d['date']}
+                </h5>  
+            </td>  
+        </tr>  
+    );
+return (
+    <tbody>
+        {tableElem}
+    </tbody>
+)
+}
+
+const TableMemberElement=()=>{ 
+    const TableElem=data.memberdetails.map((d)=>  
+        <tr> 
+            <td>
+                <h5>
+                    {d['membername']}
+                </h5>  
+            </td> 
+            <td>
+                <h5>
+                    {d['position']}
+                </h5>  
+            </td> 
+            <td>
+                <h5>
+                    {d['AadharId']}
+                </h5>  
+            </td> 
+        </tr> 
+          
+    );
     return (
-      <>
-        <label htmlFor={props.id || props.name}>{label}</label>
-        <input className="text-input" {...field} {...props} />
-        {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
-        ) : null}
-      </>
-    );
-  };
+        <tbody>
+            {TableElem}
+        </tbody>
+    )
 
-// And now we can use these
-const SignupForm = () => {
-  return ( 
-      <Formik
-        initialValues={{
-          firstName: 'keder',
-          lastName: '',
-          email: '',
-          acceptedTerms: false, // added for our checkbox
-          jobType: '', // added for our select
-        }}
-        validationSchema={Yup.object({
-          firstName: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
-          lastName: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Required'),
-          email: Yup.string()
-            .email('Invalid email address')
-            .required('Required'),
-          acceptedTerms: Yup.boolean()
-            .required('Required')
-            .oneOf([true], 'You must accept the terms and conditions.'),
-          jobType: Yup.string()
-            .oneOf(
-              ['designer', 'development', 'product', 'other'],
-              'Invalid Job Type'
-            )
-            .required('Required'),
-        })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        <div className='container-fluid'>
-            <Form>
-                <Table responsive="sm md"> 
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>First Name</td>
-                        <td>
-                            <MyTextInput 
-                                name="Registered With"
-                                type="text"
-                                placeholder="Jane"
-                            />
-                        </td> 
-                    </tr> 
-
-                    <tr>
-                        <td>2</td>
-                        <td>Last Name</td>
-                        <td>
-                            <MyTextInput 
-                                name="Type Of NGO"
-                                type="text"
-                                placeholder="Doe"
-                            />   
-                        </td> 
-                    </tr> 
-
-                    <tr>
-                        <td>3</td>
-                        <td>Email address</td>
-                        <td>
-                            <MyTextInput 
-                                name="email"
-                                type="email"
-                                placeholder="jane@formik.com"
-                            />
-                        </td> 
-                    </tr> 
-                    </tbody>
-
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Table>
-            </Form>
-        </div>
-
-
-      </Formik> 
-  );
-};
-
-const TableData=()=>{
+}
+function TableFormatData(){
     return(
-        <div>
-            <Table responsive="sm md">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Table heading</th>
-                    <th>Table heading</th> 
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td> 
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td> 
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td> 
-                </tr>
-                </tbody>
-            </Table>
-        </div>
+        <React.Fragment>
+            <div className='container-fluid'> 
+                <div className="row pt-5" >
+                    <div className="col-10"> 
+                            <Table striped bordered hover size="sm">
+                                <tbody>
+                                    <tr> 
+                                        <td>
+                                            <h5>
+                                                Unique NGO ID
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                {data.id}
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </Table>                                                                             
+                    </div>
+                </div>
+                <div className="row pt-5" >
+                    <div className="col-10">
+                        <Alert variant="success">
+                            <Alert.Heading>Registration Details</Alert.Heading>
+                        </Alert>
+                        <Table striped bordered hover size="sm">
+                            <tbody>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Type of NGO
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.TypeofNGO}
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Registered With
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.RegisteredWith}
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Registration No
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.RegistrationNo}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Copy of Registration Certificate
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.CopyofRegistrationCertificate}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Copy of Pan Card
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.CopyofPanCard}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Act name
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.Actname}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            City of Registration
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.CityofRegistration}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            State of Registration
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.StateofRegistration}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Date of Registration
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.registrationdetails.DateofRegistration}
+                                    </h5>
+                                    </td>
+                                </tr> 
+                            </tbody>
+                        </Table>                                                                             
+                    </div>
+                </div>
+                <div className="row pt-5" >
+                    <div className="col-10">
+                        <Alert variant="success">
+                            <Alert.Heading>Contact Details</Alert.Heading>
+                        </Alert>
+                        <Table striped bordered hover size="sm">
+                            <tbody>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Address
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.Address}
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            City
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.City}
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            State
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.State}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Telephone
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.Telephone}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Mobile No
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.MobileNo}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Website Url
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.WebsiteUrl}
+                                    </h5>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>
+                                        <h5>
+                                            Email
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            {data.contact.Email}
+                                    </h5>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </Table>                                                                             
+                    </div>
+                </div>
+                <div className="row pt-5" >
+                    <div className="col-10">
+                        <Alert variant="success">
+                            <Alert.Heading>Member Details</Alert.Heading>
+                        </Alert>
+                        <Table striped bordered hover size="sm"> 
+                            <thead>
+                                <tr> 
+                                    <th>Member Name</th>
+                                    <th>Position</th>
+                                    <th>Aadhar Id</th>
+                                </tr>
+                            </thead>
+                            <TableMemberElement/> 
+                        </Table>                                                                             
+                    </div>
+                </div>
+                <div className="row pt-5" >
+                    <div className="col-10">
+                        <Alert variant="success">
+                            <Alert.Heading>NGO Achievement</Alert.Heading>
+                        </Alert>
+                        <Table striped bordered hover size="sm"> 
+                            <thead>
+                                <tr> 
+                                    <th>Achievement Name</th>
+                                    <th>Achievement Date</th> 
+                                </tr>
+                            </thead>
+                            <TableAchieveElement/> 
+                        </Table>                                                                             
+                    </div>
+                </div>
+            </div>
+        </React.Fragment>
     );
 }
 
-
-export { 
-    SignupForm
-}
+export default TableFormatData
