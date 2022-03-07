@@ -5,6 +5,7 @@ import TableFormatData from "./Details";
 import { BrowserRouter as Router,Route,Switch,Link } from "react-router-dom";
 import {DetailsUpdate,NestedList} from './DetailsUpdate';
 import PrevHistory from "./PrevHistory";
+import RecipeReviewCard from "./Events";
 
 function Layout(){  
         return( 
@@ -19,6 +20,7 @@ function Layout(){
                             <Route path="/ngodash/details"><TableFormatData/> </Route>
                             <Route path="/ngodash/profileupdate"><NestedList/> </Route> 
                             <Route path="/ngodash/history"><PrevHistory/></Route>
+                            <Route path = "/ngodash/events"><RecipeReviewCard/></Route>
                         </Switch> 
                         
                     </Container>

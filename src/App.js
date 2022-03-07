@@ -41,18 +41,9 @@ export default function App() {
           </Route>
         </Switch>
 
-<<<<<<< HEAD
-            <Route path="ngodash" element={<Layout />} />
-          </Routes> 
-        </switch>
-
-      <MyFooter/>
-    </div>
-=======
         <MyFooter/>
       </div>
     </Router> 
->>>>>>> 0f7511b2a57523015de5ce7fe1a3b4af67264026
   );
 }
  
