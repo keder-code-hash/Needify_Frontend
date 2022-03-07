@@ -1,6 +1,7 @@
 import './App.css';
 
-import { Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router,Route,Switch,Link } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 
 import MyNavbar from './components/navbar';
 import MyFooter from './components/footer';
@@ -8,35 +9,51 @@ import OurServices from './components/OurServices';
 import RecentDatas from './components/RecentData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyLandingPage from './components/LandingHomePage';
-import MyTeam from './components/MeetOurTeam';
-import Message from './components/ngodashboard'; 
-import MyLoginPage from './components/LogIn';
+import MyTeam from './components/MeetOurTeam';   
 import MyRegister from './components/Register';
 import ContactForm from './components/ContactPage';
-import MyLatestNews from './components/LatestNews';
-import Layout from './components/ngodashboard/DashBoardLayout';
+import MyLatestNews from './components/LatestNews'; 
 import Sidebar from './components/ngodashboard/Sidebar';
-
-
-function App() {
+import TableFormatData from './components/ngodashboard/Details';
+import Layout from './components/ngodashboard/DashBoardLayout';
+import SignIn from './components/LogIn'
+import SignUp from './components/Register'
+ 
+ 
+export default function App() {
   return (
-    <div className="App">
-      <MyNavbar/>
+    <Router>
+      <div>          
+        <MyNavbar/>
 
-        <switch>
-          <Routes>
-            <Route exact path="/" element={[<MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>,<MyLatestNews/>, <ContactForm/>]} />
-            <Route path="recent" element={<RecentDatas />} />
-            <Route path="login" element={<MyLoginPage />} />
-            <Route path="register" element={<MyRegister/>} />
+        <Switch>
+          <Route exact path="/">
+            <MyLandingPage />,<RecentDatas/>,<OurServices/>,<MyTeam/>,<MyLatestNews/>, <ContactForm/>
+          </Route> 
+          <Route path="/login" >
+           <SignIn/>
+          </Route>
+          <Route path="/register" >
+           <SignUp/>
+          </Route>
+          <Route path="/ngodash">
+            <Layout />
+          </Route>
+        </Switch>
 
+<<<<<<< HEAD
             <Route path="ngodash" element={<Layout />} />
           </Routes> 
         </switch>
 
       <MyFooter/>
     </div>
+=======
+        <MyFooter/>
+      </div>
+    </Router> 
+>>>>>>> 0f7511b2a57523015de5ce7fe1a3b4af67264026
   );
 }
-
-export default App;
+ 
+ 
