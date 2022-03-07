@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { UpdateOutlined } from '@mui/icons-material';
+import { UpdateOutlined,ContactPageOutlined,AppRegistrationOutlined,CardMembershipOutlined } from '@mui/icons-material';
 import { orange } from '@mui/material/colors';
 
  
@@ -140,11 +140,74 @@ function DetailsUpdate() {
   );
 }
 
+function RegistrationUpdate() {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    console.log({ 
+      // email: data.get('email'),
+      // password: data.get('password'),
+    });
+  };
+
+  return (
+    <React.Fragment>
+      <div style={{ width: "100%" }}>
+        <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <UpdateOutlined />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+                Registration Details Update
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              <TextField margin="normal" required fullWidth id="RegisteredWith" label="Registered With" name="text" autoComplete="text" autoFocus/>
+              <TextField margin="normal" required fullWidth id="TypeofNGO" label="Type of NGO" name="text" autoComplete="text" autoFocus/> 
+              <TextField margin="normal" required fullWidth id="RegistrationNo" label="Registration No" name="text" autoComplete="text" autoFocus/> 
+              <TextField margin="normal" required fullWidth id="CopyofRegistrationCertificate" label="Copy of Registration Certificate" name="number" autoComplete="number" autoFocus/> 
+              <TextField margin="normal" required fullWidth id="CopyofPanCard" label="Copy of Pan Card" name="number" autoComplete="number" autoFocus/> 
+              <TextField margin="normal" required fullWidth id="Actname" label="Actname" name="text" autoComplete="text" autoFocus/> 
+              <TextField margin="normal" required fullWidth id="CityofRegistration" label="City of Registration" name="email" autoComplete="email" autoFocus/>
+              <TextField margin="normal" required fullWidth id="StateofRegistration" label="State of Registration" name="email" autoComplete="email" autoFocus/>
+              <TextField margin="normal" required fullWidth id="DateofRegistration" label="Date of Registration" name="date" autoComplete="email" autoFocus/>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Save
+              </Button>
+            </Box>
+          </Box> 
+        </Container>
+        </ThemeProvider>
+      </div>
+    </React.Fragment>
+  );
+}
+
 export default function NestedList() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [regopen, setRegopen] = React.useState(false);
 
   const handleClick = () => {
     setOpen(!open);
+  };
+  const handleRegClick = () => {
+    setRegopen(!regopen);
   };
 
   return (
@@ -153,28 +216,38 @@ export default function NestedList() {
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Nested List Items
+        <ListSubheader component="div" id="Update Details ">
+          Update Your NGO Profile details
         </ListSubheader>
       }
     >
       <ListItemButton>
         <ListItemIcon>
-          <SendIcon />
+          <CardMembershipOutlined />
         </ListItemIcon>
-        <ListItemText primary="Sent mail" />
+        <ListItemText primary="Member Details Update" />
       </ListItemButton>
-      <ListItemButton>
+
+      <ListItemButton onClick={handleRegClick}>
         <ListItemIcon>
-          <DraftsIcon />
+          <AppRegistrationOutlined />
         </ListItemIcon>
-        <ListItemText primary="Drafts" />
+        <ListItemText primary="Registration Details Update" />
+        {regopen ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
+      <Collapse in={regopen} timeout="auto" unmountOnExit>
+        <List component="div1" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}> 
+              <RegistrationUpdate/>
+          </ListItemButton>
+        </List>
+      </Collapse>
+
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>
-          <InboxIcon />
+          <ContactPageOutlined />
         </ListItemIcon>
-        <ListItemText primary="Inbox" />
+        <ListItemText primary="Contact Details Update" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -184,6 +257,7 @@ export default function NestedList() {
           </ListItemButton>
         </List>
       </Collapse>
+
     </List>
   );
 }
