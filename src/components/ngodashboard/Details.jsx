@@ -1,5 +1,6 @@
 import React from "react";
 import { Form,Button,Table,Alert } from 'react-bootstrap';
+
 const data={ 
     id : "XXXXX/XXXX/XXXXX",
     contact : {
@@ -98,6 +99,7 @@ const TableMemberElement=()=>{
     )
 
 }
+
 function TableFormatData(){
     return(
         <React.Fragment>
