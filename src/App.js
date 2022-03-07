@@ -31,7 +31,6 @@ function App() {
             <Route path="register" element={<MyRegister/>} />
 
             <Route path="ngodash" element={<Layout />} />
-
           </Routes> 
         </switch>
 
