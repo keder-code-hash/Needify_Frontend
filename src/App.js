@@ -1,8 +1,6 @@
 import './App.css';
-
 import { BrowserRouter as Router,Route,Switch,Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
-
 import MyNavbar from './components/navbar';
 import MyFooter from './components/footer';
 import OurServices from './components/OurServices';
