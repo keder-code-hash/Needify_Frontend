@@ -3,9 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material'; 
-
-
+import { Button, CardActionArea, CardActions,TextField } from '@mui/material';  
+import RequirementsForm from './RequirementsForm';
+ 
 // const id=[1,2,3,4];
 
 
@@ -60,21 +60,22 @@ function RecentDetailsCard(){
 }
 
 const style={
-    "box-shadow": "10px 10px 8px #888888"
+    "padding-top": "1%",
+    "padding-bottom": "6%"
 }
 
 const RequirementsElem=()=>{
     return(
         <React.Fragment>
             <div className="container-fluid">
-                <div className="row" style={ style }>
+                <div className="row" style={style}>
                     <div className="col-12">
-                        <RecentDetailsCard/>
+                        <RequirementsForm/>
                     </div> 
                 </div>
                 <div className="row">
-                    <div className="col-12">
-                        "hiii1212"
+                    <div className="col-12"> 
+                        <RecentDetailsCard/>
                     </div>
                 </div>
             </div>
