@@ -10,24 +10,26 @@ import RecipeReviewCard from "./Events";
 
 function Layout(){  
         return( 
-            <Row>
-                <Col md="auto" sm="auto">
-                    <Sidebar />
-                </Col>
-                <Col>
-                    <Container> 
- 
-                        <Switch>
-                            <Route path="/ngodash/details"><TableFormatData/> </Route>
-                            <Route path="/ngodash/profileupdate"><NestedList/> </Route> 
-                            <Route path="/ngodash/history"><PrevHistory/></Route>
-                            <Route path="/ngodash/requirements"><RequirementsElem/></Route>
-                            <Route path = "/ngodash/events"><RecipeReviewCard/></Route>
-                        </Switch> 
-                        
-                    </Container>
-                </Col>
-            </Row>  
+            <div>
+                <Row>
+                    <div className="col-3" style={{ "padding": "0px", "margin" : "0px" }}>
+                        <Sidebar />
+                    </div>
+                    <div className="col-8"style={{ "padding": "0px", "margin" : "0px" }}>
+                        <Container> 
+    
+                            <Switch>
+                                <Route path="/ngodash/details"><TableFormatData/> </Route>
+                                <Route path="/ngodash/profileupdate"><NestedList/> </Route> 
+                                <Route path="/ngodash/history"><PrevHistory/></Route>
+                                <Route path="/ngodash/requirements"><RequirementsElem/></Route>
+                                <Route path = "/ngodash/events"><RecipeReviewCard/></Route>
+                            </Switch> 
+                            
+                        </Container>
+                    </div>
+                </Row>  
+            </div>
         ); 
 }
 
