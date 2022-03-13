@@ -15,7 +15,7 @@ function Layout(){
                     <div className="col-3" style={{ "padding": "0px", "margin" : "0px" }}>
                         <Sidebar />
                     </div>
-                    <div className="col-8"style={{ "padding": "0px", "margin" : "0px" }}>
+                    <div className="col-9" style={{ "padding": "0px", "margin" : "0px" }}>
                         <Container> 
     
                             <Switch>
@@ -23,7 +23,7 @@ function Layout(){
                                 <Route path="/ngodash/profileupdate"><NestedList/> </Route> 
                                 <Route path="/ngodash/history"><PrevHistory/></Route>
                                 <Route path="/ngodash/requirements"><RequirementsElem/></Route>
-                                <Route path = "/ngodash/events"><RecipeReviewCard/></Route>
+                                <Route path ="/ngodash/events"><RecipeReviewCard/></Route>
                             </Switch> 
                             
                         </Container>

@@ -103,7 +103,7 @@ const TableMemberElement=()=>{
 function TableFormatData(){
     return(
         <React.Fragment>
-            <div className='container-fluid'> 
+            <div className='container'> 
                 <div className="row pt-5" >
                     <div className="col-10"> 
                             <Table striped bordered hover size="sm">
